@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import {device} from "./util";
 
-function App() {
+
+import {firebaseConfig} from "./config";
+import styled from "styled-components";
+import {FireBaseTest} from "./FireBaseTest";
+
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainLayout>
+      <FireBaseTest/>
+    </MainLayout>
   );
 }
 
-export default App;
+const MainLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  @media screen and ${device.laptop} {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+`
